@@ -185,7 +185,7 @@ from typing import Annotated
 import streamlit as st
 
 
-os.environ["GOOGLE_API_KEY"] = "AIzaSyB4pkyfmGVZFstDNTNeHSLOlCgz1SHV45Q"
+os.environ["GOOGLE_API_KEY"] = ""
 
 
 # 1. Configurando o LLM do Google
