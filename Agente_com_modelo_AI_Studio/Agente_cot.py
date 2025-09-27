@@ -86,10 +86,15 @@ def scraping_produtos(produto: str ) -> str:
                                     frame.loc[len(frame)] = nova_linha_produto
                     if 'amazon.com' in url:
                             print(f"Entrou amazom {i+1}")
-                            chorme_opt = Options()
-                            chorme_opt.add_argument("--headless")
+                            chrome_opt = Options()
+                            chrome_opt.add_argument("--headless")
+                            chrome_opt.add_argument("--no-sandbox")
+                            chrome_opt.add_argument("--disable-dev-shm-usage")
+                            # Argumento que ajuda a ignorar o problema de "user data dir in use"
+                            chrome_opt.add_argument("--disable-gpu") 
+                            chrome_opt.add_argument("--ignore-certificate-errors")
     
-                            navegador = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options= chorme_opt)
+                            navegador = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options= chrome_opt)
                             url_get = f"{url}{url_pord2.lower()}&page={i+1}"
                             navegador.get(url_get)
     
@@ -135,10 +140,15 @@ def scraping_produtos(produto: str ) -> str:
                             navegador.quit()
                     if 'magazinevoce' in url:
                             print(f"Entrou magazine luiza {i+1}")
-                            chorme_opt = Options()
-                            chorme_opt.add_argument("--headless")
+                            chrome_opt = Options()
+                            chrome_opt.add_argument("--headless")
+                            chrome_opt.add_argument("--no-sandbox")
+                            chrome_opt.add_argument("--disable-dev-shm-usage")
+                            # Argumento que ajuda a ignorar o problema de "user data dir in use"
+                            chrome_opt.add_argument("--disable-gpu") 
+                            chrome_opt.add_argument("--ignore-certificate-errors")
                             
-                            navegador = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options= chorme_opt)
+                            navegador = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options= chrome_opt)
                             consulta = f'{url}{url_pord2.lower()}/?page={i+1}'
                             navegador.get(consulta)
     
@@ -175,7 +185,7 @@ from typing import Annotated
 import streamlit as st
 
 
-os.environ["GOOGLE_API_KEY"] = ""
+os.environ["GOOGLE_API_KEY"] = "AIzaSyB4pkyfmGVZFstDNTNeHSLOlCgz1SHV45Q"
 
 
 # 1. Configurando o LLM do Google
