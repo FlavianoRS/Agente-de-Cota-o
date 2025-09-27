@@ -178,10 +178,10 @@ from langchain_openai import ChatOpenAI
 from langchain_ollama import OllamaLLM
 import streamlit as st
 
-model = "llama3.2:3b-instruct-q4_K_S" 
+#model = "llama3.2:3b-instruct-q4_K_S" 
 #model = "qwen3:4b-instruct" 
 #model = "mistral:7b-instruct" # Funciona, só precisa melhoar o prompt
-#model = "orieg/gemma3-tools:1b" # Funciona, só a resposta é gerada em inglês
+model = "orieg/gemma3-tools:1b" # Funciona, só a resposta é gerada em inglês
 #model = "MFDoom/deepseek-r1-tool-calling:7b"
 os.environ["OPENAI_API_BASE"] = "http://localhost:11434/v1"
 os.environ["OPENAI_API_KEY"] = "ollama"  # A chave pode ser qualquer coisa, 'ollama' é uma convenção
